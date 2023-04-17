@@ -31,8 +31,10 @@ const addValidation = (req, res, next) => {
 
 const updateValidation = (req, res, next) => {
     const {error} = update.validate(req.body);
-     if(error) {
-        throw HttpError(400, 'missing field');
+    if(!req.body) {
+        throw HttpError(400, 'missing field');        
+    } else if(error) {
+        throw HttpError(400, `missing required ${error.details[0].path[0]} field`);
     }
     next();
 };
