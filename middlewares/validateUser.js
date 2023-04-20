@@ -15,7 +15,8 @@ const subscriptionSchema = Joi.object({
 const authValidate = async(req, res, next) => {
    const {error} = authSchema.validate(req.body);
    if(error) {
-    next(HttpError(400, "Bad Request"));
+    const path = error.details[0].path;
+    next(HttpError(400, `missing required ${path} field`));
    }
    next();
 }; 
