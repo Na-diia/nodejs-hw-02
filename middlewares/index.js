@@ -1,6 +1,7 @@
 const {authenticate} = require('./authenticate');
 const {authValidate, subValidate} = require('./validateUser');
 const {addValidation, updateValidation, validateFavoriteField, validateId} = require('./validateData')
+const upload = require('./upload');
 
 module.exports = {
     authenticate,
@@ -10,4 +11,5 @@ module.exports = {
     updateValidation,
     validateFavoriteField,
     validateId,
+    upload,
 };
