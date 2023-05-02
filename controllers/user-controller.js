@@ -108,7 +108,7 @@ const updateAvatar = async(req, res) => {
   await image.writeAsync(tmpUpload);
 
   
-  const avatarURL = path.join(avatarDir, avatarName);
+  const avatarURL = path.join("avatars", avatarName);
 
   try {
     await fs.rename(tmpUpload, resultUpload);
